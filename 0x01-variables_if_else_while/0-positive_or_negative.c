@@ -10,12 +10,12 @@
  */
 int main(void)
 {
-	int n;
+	int n = 100;
 
 	/* check the condition */
 	if (n > 0)
 	{
-		printf("d n is positive\n";
+		printf("%d n is positive\n");
 	}
 	else if (n == 0)
 	{

@@ -14,7 +14,7 @@ int main(void)
 
 	for (ch = 'a'; ch <= 'z'; ch++)
 	{
-		if ((ch != ne) || (ch != nq))
+		if ((ch != ne) && (ch != nq))
 		{
 		putchar(ch);
 		}

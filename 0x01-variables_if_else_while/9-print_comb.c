@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib h>
+#include <stdlib.h>
 
 /**
  * main - prints all possible combination of si gle digits numbers

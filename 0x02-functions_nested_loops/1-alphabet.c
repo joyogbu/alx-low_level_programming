@@ -2,7 +2,8 @@
 #include <stdio.h>
 
 /**
- * print_alphabet - function prints the alphabets in lowercase followed by a new line
+ * print_alphabet - function prints the alphabets in lowercase
+ * followed by a new line
  *
  */
 void print_alphabet(void)

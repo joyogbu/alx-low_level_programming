@@ -25,8 +25,9 @@ void times_table(void)
 				{
 					continue;
 				}
-			_putchar(' ');
-			_putchar(',');
+				_putchar(' ');
+				_putchar(',');
+			}
 			else
 			{
 				_putchar((k / 10) + '0');

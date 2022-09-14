@@ -9,7 +9,7 @@
 int main(void)
 {
 int i;
-unsigned long n1 = 1, n2 = 2, nlast = 50, r;
+long int n1 = 1, n2 = 2, nlast = 50, r;
 printf("%lu, %lu, ", n1, n2);
 for (i = 2; i < nlast; i++)
 {

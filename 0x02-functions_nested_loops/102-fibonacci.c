@@ -14,6 +14,8 @@ printf("%lu, %lu, ", n1, n2);
 for (i = 2; i < nlast; i++)
 {
 r = n1 + n2;
+n1 = n2;
+n2 = r;
 printf("%lu", r);
 if (i != nlast - 1)
 printf(", ");

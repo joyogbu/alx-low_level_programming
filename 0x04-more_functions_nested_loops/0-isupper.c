@@ -9,17 +9,11 @@
  */
 int _isupper(int c)
 {
-	char upper = 'A';
-
-	for (; upper <= 'Z'; upper++)
-	{
-		if (c == upper)
+		if (c >= 65 && c <= 90)
 		{
 			return (1);
 		}
-		else
 		{
 			return (0);
 		}
-	}
 }

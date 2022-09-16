@@ -31,6 +31,6 @@ int main(void)
 			printf("%d ", a);
 		}
 	}
-	printf("Buzz\n");
+	putchar('\n');
 	return (0);
 }

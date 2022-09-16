@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib h>
+#include <stdlib.h>
 
 /**
  * main - program that prints 1 to 100
@@ -30,6 +30,7 @@ int main(void)
 		{
 			printf("%d", a);
 		}
+		printf(" ");
 	}
 	printf("Buzz\n");
 	return (0);

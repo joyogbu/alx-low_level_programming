@@ -27,13 +27,13 @@ char *_strncpy(char *dest, char *src, int n)
 		n = j;
 	}
 	src = pt2;
-	for (; i < n && src[i] != '\0'; i++;)
+	for (; i < n && src[i] != '\0'; i++)
 	{
-		dest[I] = src[I];
+		dest[i] = src[i];
 	}
 	for (; i < n; i++)
 	{
-		des[i] = '\0';
+		dest[i] = '\0';
 	}
 	return (pt1);
 }

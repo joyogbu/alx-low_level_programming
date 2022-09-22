@@ -6,7 +6,6 @@
  * @dest: an input s5ring
  * @src: an input string
  * @n: an input integer
-
  * Return: a pointer to the dest
  */
 char *_strncpy(char *dest, char *src, int n)
@@ -27,13 +26,9 @@ char *_strncpy(char *dest, char *src, int n)
 		n = j;
 	}
 	src = pt2;
-	for (; i < n && src[i] != '\0'; i++)
-	{
-		dest[i] = src[i];
-	}
 	for (; i < n; i++)
 	{
-		dest[i] = '\0';
+	*dest++ = *src++;
 	}
 	return (pt1);
 }

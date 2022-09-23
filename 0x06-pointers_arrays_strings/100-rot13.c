@@ -8,22 +8,44 @@
  */
 char *rot13(char *s)
 {
-	int j = 0;
+	int indx1 = 0;
+	int indx2;
+	char alpha[52] = {
+	'A', 'B', 'C', 'D', 'E',
+	'F', 'G', 'H', 'I', 'J',
+	'K', 'L', 'M', 'N', 'O',
+	'P', 'Q', 'R', 'S', 'T',
+	'U', 'V', 'W', 'X', 'Y',
+	'Z', 'a', 'b', 'c', 'd',
+	'e', 'f', 'g', 'h', 'i',
+	'j', 'k', 'l', 'm', 'n',
+	'o', 'p', 'q', 'r', 's',
+	't', 'u', 'v', 'w', 'x',
+	'y', 'z'};
+	char tkey[52] = {
+	'N', 'O', 'P', 'Q', 'R',
+	'S', 'T', 'U', 'V', 'W',
+	'X', 'Y', 'Z', 'A', 'B',
+	'C', 'D', 'E', 'F', 'G',
+	'H', 'I', 'J', 'K', 'L',
+	'M', 'n', 'o', 'p', 'q',
+	'r', 's', 't', 'u', 'v',
+	'w', 'x', 'y', 'z', 'a',
+	'b', 'c', 'd', 'e', 'f',
+	'g', 'h', 'i', 'j', 'k',
+	'l', 'm'};
 
-	while (s[j] != '\0')
+	while (s[indx1])
 	{
-		while ((s[j] >= 'a' && s[j] <= 'z') || (s[j] >= 'A' && s[j] <= 'Z'))
+		for (indx2 = 0; indx2 < 52; indx2++)
 		{
-			if ((s[j] >= 'a' && s[j] <= 'm') || (s[j] >= 'A' && s[j] <= 'M'))
+			if (s[indx1] == alpha[indx2])
 			{
-				s[j] += 13;
-			}
-			else
-			{
-				s[j] -= 13;
+				s[indx1] = tkey[indx2];
+				break;
 			}
 		}
-		j++;
+		indx1++;
 	}
 	return (s);
 }

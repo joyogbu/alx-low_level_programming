@@ -26,9 +26,13 @@ char *_strncpy(char *dest, char *src, int n)
 		n = j;
 	}
 	src = pt2;
-	for (; i < n; i++)
+	for (; src[i] && i < n; i++)
 	{
 	*dest++ = *src++;
+	}
+	for (i = j; i < j; i++)
+	{
+		*dest++ = '\0';
 	}
 	return (pt1);
 }

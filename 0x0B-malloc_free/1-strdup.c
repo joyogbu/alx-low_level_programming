@@ -15,21 +15,24 @@ char *_strdup(char *str)
 	char *str2;
 	int i = 0, j = 0;
 
-	while (str[i] != '\0')
-	{
-		i++;
-		j++;
-	}
-	str2 = malloc(sizeof(char) * str[i++]);
-	if (str == NULL || !str2)
+	if (str == NULL)
 	{
 		return (NULL);
 	}
-	for (j = 0; j <= str[i++]; j++)
+	while (*str)
 	{
-		str2[j] = str[i];
-		j++;
 		i++;
+		str++;
+	}
+	str2 = malloc(sizeof(char) * (i + 1));
+	if (str2 == NULL || !str2)
+	{
+		return (NULL);
+	}
+	for (; j < i; j++)
+	{
+		str2[j] = *str;
+		str++;
 	}
 	str2[j] = '\0';
 	return (str2);

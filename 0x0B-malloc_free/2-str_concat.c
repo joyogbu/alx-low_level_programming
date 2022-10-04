@@ -7,17 +7,18 @@
  * @s1: an input string
  * @s2: an input string
  * Return: returns NULL if NULL is passed or on failure,
- * otherwise return a pointer to the allocated memory space containing s1 and s2
+ * otherwise return a pointer to the allocated
+ * memory space containing s1 and s2
  */
 char *str_concat(char *s1, char *s2)
 {
 	char *spt = s1;
 	int i = 0, j = 0, k = 0;
-	
+
 	if (s1 == NULL)
 	{
-		s1 = "";;
-1	}
+		s1 = "";
+	}
 	if (s2 == NULL)
 	{
 		s2 = "";
@@ -32,7 +33,7 @@ char *str_concat(char *s1, char *s2)
 	{
 		return (NULL);
 	}
-	for (j=0; s1[j]; j++)
+	for (j = 0; s1[j]; j++)
 	{
 		spt[k] = s1[j];
 		k++;

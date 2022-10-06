@@ -30,12 +30,14 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		j++;
 	}
-	if (n >= j)
-		n = j;
-	sptr = malloc(sizeof(char) * (i + n + 1));
+	sptr = malloc(sizeof(char) * (i + n + 2));
 	if (sptr == NULL)
 	{
 		return (NULL);
+	}
+	if (n >= j)
+	{
+		n = j;
 	}
 	for (i = 0; s1[i]; i++)
 	{
@@ -51,4 +53,3 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	sptr[k] = '\0';
 	return (sptr);
 }
-

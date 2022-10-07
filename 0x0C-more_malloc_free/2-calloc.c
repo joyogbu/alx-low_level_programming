@@ -15,6 +15,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	void *arr_ptr;
 	char *arr;
 
+
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 	arr_ptr = malloc(size * nmemb);
@@ -24,6 +25,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	}
 	arr = arr_ptr;
 	for (i = 0; i < (size * nmemb); i++)
-		arr[i] = i;
+		arr[i] = '\0';
 	return (arr_ptr);
 }

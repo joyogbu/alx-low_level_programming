@@ -10,16 +10,16 @@
  */
 int *array_range(int min, int max)
 {
-	int i, j, n;
+	int j, n;
 	int *arr_pt;
 
 	if (min > max)
 		return (NULL);
-	n = max - min + 1; 
+	n = max - min + 1;
 	arr_pt = malloc(sizeof(int) * n);
 	for (j = 0; j < n; j++)
 	{
-		arr_pt[i] = min++;
+		arr_pt[j] = min++;
 	}
 	return (arr_pt);
 }

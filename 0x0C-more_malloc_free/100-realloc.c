@@ -7,7 +7,9 @@
  * @ptr: pointer to the memory previously allocated
  * @old_size: size of the allocated memory
  * @new_size: new size of the new memory block
- * Return: a pointer to the new size
+ * Return: ptr if new_size == old_size
+ * NULL if new_size==0
+ * otherwise a pointer to the new size
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
@@ -42,7 +44,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		return (NULL);
 	}
 	appoint = nptr;
-	for (i = 0; i < new_size && i < old_ size; i++)
+	for(i = 0; i < new_size && i < old_ size; i++)
 	{
 		appoint[i] = *ptr2++;
 	}

@@ -37,14 +37,14 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		return (NULL);
 	}
 	ptr2 = ptr;
-	nptr = malloc(sizeof(ptr2) * new_size);
+	nptr = malloc(sizeof(*ptr2) * new_size);
 	if (nptr == NULL)
 	{
 		free(ptr);
 		return (NULL);
 	}
 	appoint = nptr;
-	for(i = 0; i < new_size && i < old_size; i++)
+	for (i = 0; i < new_size && i < old_size; i++)
 	{
 		appoint[i] = *ptr2++;
 	}

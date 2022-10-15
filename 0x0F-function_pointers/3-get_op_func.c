@@ -10,9 +10,6 @@
  */
 int (*get_op_func(char *s))(int, int)
 {
-	int i;
-
-	s = ops[].op;
 	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
@@ -21,18 +18,16 @@ int (*get_op_func(char *s))(int, int)
 		{"%", op_mod},
 		{NULL, NULL}
 	};
+	int i;
 
-
-	ops[0].op = "+";
-	ops[1].op = "-";
-	ops[2].op = "*";
-	ops[3].op = "/";
-	ops[4].op = "%";
-	ops[5].op = NULL;
-	if (ops[i].op == NULL || ops[i] > 4)
+	i = 0;
+	while (ops[i].op != NULL && ops[i].f != NULL)
 	{
-		return (NULL);
+		if (ops[i].op[0] == s[0] && !s[1])
+		{
+			return (ops[i].f);
+		}
+		i++;
 	}
-	/** return ((*get_op_func(s[i]))(a, b)); **/
-	return (ops[i].f);
+	return (NULL);
 }

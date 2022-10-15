@@ -4,12 +4,14 @@
 
 /**
  * main - driver function
+ * @argc: argument count
+ * @argv: argument vectors
  * Return: 0
  */
 int main(int argc, char *argv[])
 {
 	int a, b;
-	int(*f)(int a, int b);
+	int (*f)(int a, int b);
 
 	if (argc != 4)
 	{

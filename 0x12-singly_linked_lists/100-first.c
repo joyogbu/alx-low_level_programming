@@ -1,6 +1,8 @@
 #include "lists.h"
 #include <stdio.h>
 
+void first(void) --attribute-- ((constructor));
+
 /**
  * first - prints a string before the main function is executed
  * Return: nothing

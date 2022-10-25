@@ -5,7 +5,7 @@
 /**
  * sum_listint - returns the summ of all the data(n) of a listint_t list
  * @head: list head node
- * Return sum of all n
+ * Return: sum of all n
  */
 int sum_listint(listint_t *head)
 {

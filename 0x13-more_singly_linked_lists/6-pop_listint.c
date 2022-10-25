@@ -1,4 +1,4 @@
-#include "main.h"
+#include "lists.h"
 #include <stdlib.h>
 #include <stddef.h>
 
@@ -18,5 +18,5 @@ int pop_listint(listint_t **head)
 		*head = (*head)->next;
 		free(temp);
 	}
-	return (head);
+	return (*head);
 }

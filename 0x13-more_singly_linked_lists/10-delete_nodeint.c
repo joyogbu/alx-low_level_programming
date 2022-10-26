@@ -3,7 +3,7 @@
 #include <stddef.h>
 
 /**
- * delete_noteint_at_index - deletes a node at index index
+ * delete_nodeint_at_index - deletes a node at index index
  * @head: head node
  * @index: position of node to be deleted
  * Return: 1 on success, otherwise -1
@@ -24,7 +24,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		free(temp);
 		return (1);
 	}
-	for (i = 0; temp != NULL && i < index -1; i++)
+	for (i = 0; temp != NULL && i < index - 1; i++)
 	{
 		if (temp == NULL || temp->next == NULL)
 			return (-1);

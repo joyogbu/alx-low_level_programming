@@ -2,14 +2,6 @@
 #include "lists.h"
 #include <stdlib.h>
 
-void free_list(listint_t *head);
-size_t free_listint_safe(listint_t **h);
-/**
- * free_listint_safe - A function that frees a list
- * @h: A pointer listint_t structure
- * Return: The size of the list that was free'd
- */
-
 size_t looped_listint_count(listint_t *head);
 size_t free_listint_safe(listint_t **h);
 

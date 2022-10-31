@@ -25,13 +25,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (filename == NULL)
 		return (0);
 	f = open(filename, O_RDWR);
-	if (!f)
+	if (f < 0)
 	{
 		free(c);
 		return (0);
 	}
 	s = read(f, c, letters);
-	if (!s)
+	if (s < 0)
 	{
 		free(c);
 		return (0);
@@ -39,7 +39,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	p = write(1, c, s);
 	free(c);
 	close(f);
-	if (!p)
+	if (p < 0)
 		return (0);
 	return (p);
 }

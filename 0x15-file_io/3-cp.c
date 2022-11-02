@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 		free(buffer);
 		exit(98);
 	}
-	f2 = open(argv[2], O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	f2 = open(argv[2], O_RDWR | O_TRUNC | O_CREAT, 0664);
 	if (f2 < 0)
 	{
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);

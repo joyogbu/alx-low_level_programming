@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 	}
 	buffer = malloc(sizeof(char) * 1024);
 	f1 = open(argv[1], O_RDONLY);
-	if (f1 < 0)
+	if (f1 < 0 || buffer == NULL)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 		free(buffer);

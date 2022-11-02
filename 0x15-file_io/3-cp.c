@@ -44,14 +44,13 @@ int main(int argc, char *argv[])
 	}
 	buffer = malloc(sizeof(char) * 1024);
 	f1 = open(argv[1], O_RDONLY);
-	if (f1 < 0 || buffer == NULL)
+	if (f1 < 0)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 		free(buffer);
 		exit(98);
 	}
-	f2 = open(argv[1], O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR
-			| S_IRGRP | S_IWGRP | S_IROTH);
+	f2 = open(argv[2], O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	if (f2 < 0)
 	{
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
@@ -68,17 +67,14 @@ int main(int argc, char *argv[])
 		close_file(f2);
 		exit(98);
 	}
-	while (r > 0)
+	w = write(f2, buffer, r);
+	if (w < 0)
 	{
-		w = write(f2, buffer, r);
-		if (w < 0)
-		{
-			dprintf(2, "Error: Can't write to %s\n", argv[2]);
-			free(buffer);
-			close_file(f1);
-			close_file(f2);
-			exit(99);
-		}
+		dprintf(2, "Error: Can't write to %s\n", argv[2]);
+		free(buffer);
+		close_file(f1);
+		close_file(f2);
+		exit(99);
 	}
 	free(buffer);
 	close_file(f1);

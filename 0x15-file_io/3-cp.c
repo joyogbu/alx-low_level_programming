@@ -36,9 +36,7 @@ int main(int argc, char *argv[])
 {
 	int f1, f2, r, w;
 	char *buffer;
-	mode_t oldmask;
 
-	oldmask = umask(S_IWGRP);
 	if (argc != 3)
 	{
 		dprintf(2, "Usage: cp file_from file_to\n");
@@ -52,7 +50,7 @@ int main(int argc, char *argv[])
 		free(buffer);
 		exit(98);
 	}
-	f2 = open(argv[2], O_CREAT |O_WRONLY | O_TRUNC | O_APPEND, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH	);
+	f2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	if (f2 < 0)
 	{
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
@@ -82,7 +80,5 @@ int main(int argc, char *argv[])
 	close_file(f1);
 	close_file(f2);
 
-
-	umask(oldmask);
 	return (0);
 }

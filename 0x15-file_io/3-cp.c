@@ -35,7 +35,7 @@ void close_file(int fd)
 int main(int argc, char *argv[])
 {
 	int f1, f2, r, w;
-	ssize_t n_bytes = 0;
+	/** ssize_t n_bytes = 0; **/
 	char *buffer;
 
 	if (argc != 3)

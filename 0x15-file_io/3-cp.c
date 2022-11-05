@@ -72,8 +72,8 @@ int main(int argc, char *argv[])
 		}
 		if (r == 0)
 			break;
-		n_bytes += r;
-		w = write(f2, buffer, n_bytes);
+		/** n_bytes += r; **/
+		w = write(f2, buffer, r);
 		if (w < 0)
 		{
 			dprintf(2, "Error: Can't write to %s\n", argv[2]);

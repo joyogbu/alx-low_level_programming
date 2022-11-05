@@ -35,6 +35,7 @@ void close_file(int fd)
 int main(int argc, char *argv[])
 {
 	int f1, f2, r, w;
+	ssize_t n_bytes = 0;
 	char *buffer;
 
 	if (argc != 3)
@@ -50,7 +51,7 @@ int main(int argc, char *argv[])
 		free(buffer);
 		exit(98);
 	}
-	f2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	f2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (f2 < 0)
 	{
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
@@ -58,23 +59,29 @@ int main(int argc, char *argv[])
 		free(buffer);
 		exit(99);
 	}
-	r = read(f1, buffer, 1024);
-	if (r < 0 || f1 < 0)
+	while (1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
-		free(buffer);
-		close_file(f1);
-		close_file(f2);
-		exit(98);
-	}
-	w = write(f2, buffer, r);
-	if (w < 0)
-	{
-		dprintf(2, "Error: Can't write to %s\n", argv[2]);
-		free(buffer);
-		close_file(f1);
-		close_file(f2);
-		exit(99);
+		r = read(f1, buffer, 1024);
+		if (r < 0 || f1 < 0)
+		{
+			dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+			free(buffer);
+			close_file(f1);
+			close_file(f2);
+			exit(98);
+		}
+		if (r == 0)
+			break;
+		n_bytes += r;
+		w = write(f2, buffer, n_bytes);
+		if (w < 0)
+		{
+			dprintf(2, "Error: Can't write to %s\n", argv[2]);
+			free(buffer);
+			close_file(f1);
+			close_file(f2);
+			exit(99);
+		}
 	}
 	free(buffer);
 	close_file(f1);

@@ -270,22 +270,25 @@ int main(int __attribute__((__unused__)) argc, char **argv)
 	if (header == NULL)
 	{
 		close_elf(o);
-		dprintf(STDERR_FILENO, "Error: %s: Failed to read file's magic number\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: %s
+		: Failed to read file's magic number\n", argv[1]);
 		exit(98);
 	}
 	r = read(o, header, sizeof(Elf64_Ehdr));
-	if (r < 0)
+	if (r == -1 || argv[1] == NULL)
 	{
 		free(header);
 		close_elf(o);
-		dprintf(STDERR_FILENO, "Error: '%s': Failed to read file's magic number\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: '%s'
+		: Failed to read file's magic number\n", argv[1]);
 		exit(98);
 	}
 	if (header->e_ident[0] != 0x7f && header->e_ident[1] != 'E' &&
 	header->e_ident[2] != 'L' &&
 	header->e_ident[3] != 'F')
 	{
-		dprintf(STDERR_FILENO, "Error: Not an ELF file - it has the wrong magic bytes at the start\n");
+		dprintf(STDERR_FILENO, "Error
+		: Not an ELF file - it has the wrong magic bytes at the start\n");
 		exit(98);
 	}
 

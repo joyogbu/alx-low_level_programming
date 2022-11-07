@@ -263,14 +263,14 @@ int main(int __attribute__((__unused__)) argc, char **argv)
 	o = open(argv[1], O_RDONLY);
 	if (o < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: '%s': No such file\n", argv[1]);
 		exit(98);
 	}
 	header = malloc(sizeof(Elf64_Ehdr));
 	if (header == NULL)
 	{
 		close_elf(o);
-		dprintf(STDERR_FILENO, "Error; Can't read file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: %s: Failed to read file's magic number\n", argv[1]);
 		exit(98);
 	}
 	r = read(o, header, sizeof(Elf64_Ehdr));
@@ -278,14 +278,14 @@ int main(int __attribute__((__unused__)) argc, char **argv)
 	{
 		free(header);
 		close_elf(o);
-		dprintf(STDERR_FILENO, "Error: '%s': No such file\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: '%s': Failed to read file's magic number\n", argv[1]);
 		exit(98);
 	}
 	if (header->e_ident[0] != 0x7f && header->e_ident[1] != 'E' &&
 	header->e_ident[2] != 'L' &&
 	header->e_ident[3] != 'F')
 	{
-		dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
+		dprintf(STDERR_FILENO, "Error: Not an ELF file - it has the wrong magic bytes at the start\n");
 		exit(98);
 	}
 

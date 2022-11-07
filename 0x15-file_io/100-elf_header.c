@@ -30,11 +30,11 @@ void print_magic(unsigned char *e_ident)
 	for (i = 0; i < EI_NIDENT; i++)
 	{
 		printf("%02x", e_ident[i]);
+		if (i == (EI_NIDENT - 1))
+			printf("\n");
+		else
+			printf(" ");
 	}
-	if (i == EI_NIDENT - 1)
-		printf("\n");
-	else
-		printf(" ");
 }
 /**
  * print_class - function that prints the class of an elf file
@@ -101,11 +101,12 @@ void print_data(unsigned char *e_ident)
  */
 void print_version(unsigned char *e_ident)
 {
-	printf("  Version:                           %d", e_ident[EI_VERSION]);
+	printf("  Version:                           %d",
+	       e_ident[EI_VERSION]);
 	switch (e_ident[EI_VERSION])
 	{
 		case EV_CURRENT:
-			printf("(current)");
+			printf(" (current)\n");
 			break;
 		default:
 			printf("\n");

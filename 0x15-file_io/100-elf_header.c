@@ -26,12 +26,12 @@ void print_magic(unsigned char *e_ident)
 {
 	int i;
 
-	printf("	Magic:	 ");
+	printf("  Magic:   ");
 	for (i = 0; i < EI_NIDENT; i++)
 	{
 		printf("%02x", e_ident[i]);
 	}
-	if (i == (EI_NIDENT - 1))
+	if (i == EI_NIDENT - 1)
 		printf("\n");
 	else
 		printf(" ");
@@ -43,7 +43,7 @@ void print_magic(unsigned char *e_ident)
  */
 void print_class(unsigned char *e_ident)
 {
-	printf(" Class:				");
+	printf("  Class:                             ");
 	if (e_ident[EI_CLASS] == ELFCLASSNONE)
 	{
 		printf("none\n");
@@ -72,7 +72,7 @@ void print_class(unsigned char *e_ident)
  */
 void print_data(unsigned char *e_ident)
 {
-	printf(" Data:				");
+	printf("  Data:                              ");
 	if (e_ident[EI_DATA] == ELFDATANONE)
 	{
 		printf("none\n");
@@ -101,7 +101,7 @@ void print_data(unsigned char *e_ident)
  */
 void print_version(unsigned char *e_ident)
 {
-	printf("Version:			%d", e_ident[EI_VERSION]);
+	printf("  Version:                           %d", e_ident[EI_VERSION]);
 	switch (e_ident[EI_VERSION])
 	{
 		case EV_CURRENT:

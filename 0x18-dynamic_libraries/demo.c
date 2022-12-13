@@ -2,6 +2,7 @@
 #include <stdio.h>
 int _putss()
 {
-	printf("--> Please make me win!\n");
+	char *str = "--> Please make me win!";
+	_putchar(*str);
 	return (0);
 }

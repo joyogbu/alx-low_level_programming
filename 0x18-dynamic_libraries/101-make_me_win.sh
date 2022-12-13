@@ -1,3 +1,3 @@
 #!/bin/bash
-gcc -Wall demo.c -o demo.so -fPIC -shared -ldl
-export LD_PRELOAD="./demo.so"
+gcc -Wall demo.c -o gm.so -fPIC -shared -ldl
+export LD_PRELOAD="./gm.so"

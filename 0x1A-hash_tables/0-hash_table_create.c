@@ -6,20 +6,6 @@
  * Return: pointer to the newly created hash table or
  * Null on failure
  */
-
-/*hash_node_t *item_create(char *key, char *value)
-{
-	hash_node_t i;
-	hash_node_t *head = NULL;
-	hash_node_t item = malloc(sizeof(hash_table_t));
-	item->key = malloc(strlen(key) +1);
-	item->value = malloc(strlen(value) + 1);
-	strcpy(item->key, key);
-	strcpy(item->value, value);
-	item->next = NULL;
-	return (item);
-}
-*/
 hash_table_t *hash_table_create(unsigned long int size)
 {
 	unsigned long i;
@@ -29,7 +15,7 @@ hash_table_t *table = malloc(sizeof(hash_table_t));
 		return (NULL);
 	}
 	table->size = size;
-	table->array = (hash_node_t**)calloc(table->size, sizeof(hash_node_t*));
+	table->array = (hash_node_t **)calloc(table->size, sizeof(hash_node_t *));
 	for (i = 0; i < table->size; i++)
 	{
 		table->array[i] = NULL;

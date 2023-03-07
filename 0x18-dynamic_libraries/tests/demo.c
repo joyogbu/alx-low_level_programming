@@ -4,9 +4,12 @@
 
 int main(void)
 {
-	char *str = "Congratulations, you win the Jackpot!";
-	char *num = "9, 8, 10, 24, 75 - 9";
+	char *str;
+	char *num;
+       	str = "Congratulations, you win the Jackpot!";
+	num = "9, 8, 10, 24, 75 - 9";
 	write(1, &num, 20);
 	write(1, &str, 37);
-	exit(0);
+	printf("joy");
+	return(0);
 }

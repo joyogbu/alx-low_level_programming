@@ -3,7 +3,7 @@
 #include <stddef.h>
 #include <stdio.h>
 /**
- * binary_sort - searches for a value in a sorted array of integers
+ * binary_search - searches for a value in a sorted array of integers
  * using binary search
  * @array: pointer to the first element of the array
  * @size: number of elements in the array
@@ -16,10 +16,11 @@ int binary_search(int *array, size_t size, int value)
 	size_t low = 0;
 	size_t i, m;
 	size_t high = size - 1;
+
 	while (low <= high)
 	{
 		printf("Searching in array:");
-		m = floor((low + high) / 2);
+		m = (low + high) / 2;
 		for (i = low; i <= high; i++)
 		{
 			if (i == high)
@@ -32,7 +33,7 @@ int binary_search(int *array, size_t size, int value)
 			low = m + 1;
 		}
 		else if (array[m] > value)
-		{	
+		{
 			high = m - 1;
 		}
 		else
